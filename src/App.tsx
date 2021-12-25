@@ -10,15 +10,20 @@ function App() {
             <AppTitle title={"This is App component"}/>
             <AppTitle title={"My friends"}/>
             Article 1
-            <Rating value={3}/>
-            <Accordion/>
-            Article 2
             <Rating value={4}/>
+            <Accordion titleValue={'Menu'}/>
+            <Accordion titleValue={'Users'}/>
+            Article 2
+            <Rating value={3}/>
         </div>
     )
 }
 
-function AppTitle(props:any) {
+type AppTitlePropsType = {
+    title: string
+}
+
+function AppTitle(props: AppTitlePropsType) {
     console.log('AppTitle rendering')
     return <h1>{props.title}</h1>
 }
