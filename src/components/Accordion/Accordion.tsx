@@ -5,15 +5,16 @@ function Accordion() {
     console.log('Accordion rendering')
     return (
         <div>
-            <AccordionTitle/>
+            <AccordionTitle titel={'Меню'}/>
+            <AccordionTitle titel={'Vsar'}/>
             <AccordionBody/>
         </div>
     )
 }
 
-function AccordionTitle() {
+function AccordionTitle(props:any) {
     console.log('AccordionTitle rendering')
-    return <h3>Меню</h3>
+    return <h3>{props.titel}</h3>
 }
 
 function AccordionBody() {
