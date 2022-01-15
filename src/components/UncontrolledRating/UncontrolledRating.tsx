@@ -7,35 +7,44 @@ type RatingPropsType = {
 export const UncontrolledRating = (props: RatingPropsType) => {
     console.log('Rating rendering')
 
-    let [selected, setSelected] = useState()
+    let [selected, setSelected] = useState(0)
 
     return (
         <div>
-            <Star selected={props.value > 0}/>
-            <button onClick={
-                () => {
-                    !selected ? setSelected(0) : setSelected(true)
-                }}>
+            <button onClick={() => setSelected(0)}>
+                0
+            </button>
+            <Star value={1} selected={selected}/>
+            <button onClick={() => setSelected(1)}>
                 1
             </button>
-            <Star selected={props.value > 1}/>
-            <button>2</button>
-            <Star selected={props.value > 2}/>
-            <button>3</button>
-            <Star selected={props.value > 3}/>
-            <button>4</button>
-            <Star selected={props.value > 4}/>
-            <button>5</button>
+            <Star value={2} selected={selected}/>
+            <button onClick={() => setSelected(2)}>
+                2
+            </button>
+            <Star value={3} selected={selected}/>
+            <button onClick={() => setSelected(3)}>
+                3
+            </button>
+            <Star value={4} selected={selected}/>
+            <button onClick={() => setSelected(4)}>
+                4
+            </button>
+            <Star value={5} selected={selected}/>
+            <button onClick={() => setSelected(5)}>
+                5
+            </button>
         </div>
     )
 }
 
 type StarPropsType = {
-    selected: boolean
+    selected: number
+    value: number
 }
 
 const Star = (props: StarPropsType) => {
-    if (props.selected === true) {
+    if (props.selected >= props.value) {
         return <span><b>Star</b> </span>
     } else {
         return <span>Star </span>
