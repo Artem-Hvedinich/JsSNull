@@ -2,14 +2,13 @@ import React, {useState} from "react";
 import s from "./onOff.module.css"
 
 type OnOffType = {
-    On: boolean
-    onChange:(On: boolean)=>void
+    onChange: (On: boolean) => void
 }
 
 
-const OnOff = (props: OnOffType) => {
+const UncontrolledOnOff = (props: OnOffType) => {
 
-    console.log('On:'+props.On)
+    let [On, setOn] = useState(false)
 
     const onOffStyle = {
         width: "170px",
@@ -26,9 +25,8 @@ const OnOff = (props: OnOffType) => {
         width: "50px",
         height: "40px",
         border: "1px solid black",
-        borderRadius: "10px",
-        backgroundColor: props.On ? "green" : "white",
-
+        backgroundColor: On ? "green" : "white",
+        borderRadius: "10px"
     }
     const offStyle = {
         width: "50px",
@@ -38,7 +36,7 @@ const OnOff = (props: OnOffType) => {
         justifyContent: "center",
         alignItems: "center",
         marginLeft: "5px",
-        backgroundColor: props.On ? "white" : "red",
+        backgroundColor: On ? "white" : "red",
         borderRadius: "10px"
 
     }
@@ -49,24 +47,30 @@ const OnOff = (props: OnOffType) => {
         border: "1px solid black",
         display: "inline-block",
         marginLeft: "10px",
-        backgroundColor: props.On ? "green" : "red",
+        backgroundColor: On ? "green" : "red",
 
     }
 
+    const onClicked = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false)
+        props.onChange(false)
+    }
     return (
         <div style={onOffStyle}>
-            <div style={onStyle} onClick={() => {
-                props.onChange(true)
-            }}>On
+            <div style={onStyle}
+                 onClick={onClicked}>On
             </div>
-            <div style={offStyle} onClick={() => {
-                props.onChange(false)
-            }}>Off
+            <div style={offStyle}
+                 onClick={offClicked}>Off
             </div>
             <div style={indicatorStyle}></div>
         </div>
     )
 }
 
-export default OnOff
+export default UncontrolledOnOff
 

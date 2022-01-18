@@ -1,34 +1,41 @@
-import React from 'react';
-import './App.css';
+import React, {useState} from 'react';
+import './App.module.css';
 import Accordion from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
+import Rating, {RatingValueType} from "./components/Rating/Rating";
 import AppTitle from "./components/AppTitle/AppTitle"
 import OnOff from "./components/onOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
-
+import s from './App.module.css'
+import UncontrolledOnOff from "./UncontrolledOnOff/UncontrolledOnOff";
 
 function App() {
     console.log('App rendering')
 
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [switchOn, setSwitchOn] = useState<boolean>(false)
 
     return (
-        <div>
+        <div className={s.item}>
             <AppTitle title={"This is App component"}/>
-            <AppTitle title={"My friends"}/>
-            {/*Article 1*/}
-            {/*<Accordion titleValue={'Menu'} collapsed={false}/>*/}
-            {/*Article 2*/}
             <hr/>
-            <hr/>
+
             <UncontrolledAccordion titleValue={'Menu'}/>
-            <UncontrolledAccordion titleValue={'User'}/>
+
+            <Accordion titleValue={'Accordion'} collapsed={accordionCollapsed}
+                       onChange={() => {
+                           setAccordionCollapsed(!accordionCollapsed)
+                       }}/>
             <hr/>
+            {/*<OnOff On={switchOn} onChange={setSwitchOn}/>*/}
+
             <hr/>
-            <OnOff/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <hr/>
+            <UncontrolledRating/>
             <hr/>
-            <UncontrolledRating value={3}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
     )
 }

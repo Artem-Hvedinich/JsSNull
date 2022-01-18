@@ -1,54 +1,34 @@
 import React, {useState} from "react";
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-}
+type RatingPropsType = {}
 
 export const UncontrolledRating = (props: RatingPropsType) => {
     console.log('Rating rendering')
 
-    let [selected, setSelected] = useState(0)
+    let [value, setValue] = useState(0)
 
     return (
         <div>
-            <button onClick={() => setSelected(0)}>
-                0
-            </button>
-            <Star value={1} selected={selected}/>
-            <button onClick={() => setSelected(1)}>
-                1
-            </button>
-            <Star value={2} selected={selected}/>
-            <button onClick={() => setSelected(2)}>
-                2
-            </button>
-            <Star value={3} selected={selected}/>
-            <button onClick={() => setSelected(3)}>
-                3
-            </button>
-            <Star value={4} selected={selected}/>
-            <button onClick={() => setSelected(4)}>
-                4
-            </button>
-            <Star value={5} selected={selected}/>
-            <button onClick={() => setSelected(5)}>
-                5
-            </button>
+            <Star  selected={value > 0} setValue={()=>{setValue(1)}} />
+            <Star  selected={value > 1} setValue={()=>{setValue(2)}} />
+            <Star  selected={value > 2} setValue={()=>{setValue(3)}} />
+            <Star  selected={value > 3} setValue={()=>{setValue(4)}} />
+            <Star  selected={value > 4} setValue={()=>{setValue(5)}} />
         </div>
     )
 }
 
 type StarPropsType = {
-    selected: number
-    value: number
+    selected: boolean
+    setValue: () => void
 }
 
 const Star = (props: StarPropsType) => {
-    if (props.selected >= props.value) {
-        return <span><b>Star</b> </span>
-    } else {
-        return <span>Star </span>
-    }
+    return <span onClick={() => {
+        props.setValue()
+    }}>
+        {props.selected ? <b>Star </b> : 'Star '}
+    </span>
 }
 
 export default UncontrolledRating;
