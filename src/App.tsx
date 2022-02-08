@@ -3,7 +3,6 @@ import './App.module.css';
 import Accordion from "./components/Accordion/Accordion";
 import Rating, {RatingValueType} from "./components/Rating/Rating";
 import AppTitle from "./components/AppTitle/AppTitle"
-import OnOff from "./components/onOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import s from './App.module.css'
@@ -21,7 +20,7 @@ function App() {
             <AppTitle title={"This is App component"}/>
             <hr/>
 
-            <UncontrolledAccordion titleValue={'Menu'}/>
+            <UncontrolledAccordion titleValue={'UncontrolledAccordion'}/>
 
             <Accordion titleValue={'Accordion'} collapsed={accordionCollapsed}
                        onChange={() => {
