@@ -32,7 +32,7 @@ function App() {
             <hr/>
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <hr/>
-            <UncontrolledRating/>
+            {/*<UncontrolledRating/>*/}
             <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
