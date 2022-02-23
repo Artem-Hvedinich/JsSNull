@@ -6,7 +6,7 @@ import AppTitle from "./components/AppTitle/AppTitle"
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import s from './App.module.css'
-import UncontrolledOnOff from "./UncontrolledOnOff/UncontrolledOnOff";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 function App() {
     console.log('App rendering')
@@ -21,18 +21,12 @@ function App() {
             <hr/>
 
             <UncontrolledAccordion titleValue={'UncontrolledAccordion'}/>
-
-            <Accordion titleValue={'Accordion'} collapsed={accordionCollapsed}
-                       onChange={() => {
-                           setAccordionCollapsed(!accordionCollapsed)
-                       }}/>
             <hr/>
-            {/*<OnOff On={switchOn} onChange={setSwitchOn}/>*/}
+
 
             <hr/>
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <hr/>
-            {/*<UncontrolledRating/>*/}
             <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>

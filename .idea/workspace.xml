@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf3f634a-0416-4f16-bbfc-07bbdc4c740c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/stories/UncintrolledInput.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Select/Select.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Select/Select.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Select/Select.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UncontrolledRating/UncontroledRating.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UncontrolledRating/UncontroledRating.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UncontrolledRating/UncontrolledRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UncontrolledRating/UncontrolledRating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Accordion/Accordion.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Accordion/Accordion.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Accordion/Accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Accordion/Accordion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/stories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Select" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components\Select" />
+      <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components" />
       <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\stories" />
       <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components\UncontrolledRating" />
       <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components\UncontrolledAccordion" />
-      <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components\Accordion" />
-      <recent name="C:\Users\Professional\Documents\it-kamasutra\KabzdaKakProsto\my-app\src\components\onOff" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="C:\Users\Professional\Documents\IT\JsSNull\my-app\src\componnts\Rating\Rating.tsx" />
@@ -64,7 +68,17 @@
       <recent name="C:\Users\Professional\Documents\IT\JsSNull\my-app\src\components" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.storybook">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -77,6 +91,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.storybook" />
       </list>
     </recent_temporary>
@@ -96,7 +111,7 @@
       <workItem from="1640502296666" duration="612000" />
       <workItem from="1644318872818" duration="7776000" />
       <workItem from="1644389930521" duration="2665000" />
-      <workItem from="1645256784098" duration="5251000" />
+      <workItem from="1645256784098" duration="18968000" />
     </task>
     <servers />
   </component>
