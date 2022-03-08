@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
     title: 'UseMemo'
@@ -93,16 +93,24 @@ export const LikeUseCalldack = () => {
     const [counter, setCounter] = useState(0)
     const [books, setBooks] = useState(['React', 'JS', 'Css', 'HTML'])
 
-    const newArray = useMemo(() => {
-        return books.filter(u => u.toLowerCase().indexOf('a') > -1)
-    }, [books])
+    // const newArray = useMemo(() => {
+    //     return books.filter(u => u.toLowerCase().indexOf('a') > -1)
+    // }, [books])
 
-    const addBook = () => {
-        const newUsers = [...books, 'Angular' + new Date().getTime()]
-        setBooks(newUsers)
+// const memoizedAddBook = useMemo(() => {
+//         return () => {
+//             const newUsers = [...books, 'Angular' + new Date().getTime()]
+//             setBooks(newUsers)
+//         }
+//     }, [books]
+// )
 
-    }
-
+    const memoizedAddBook = useCallback(() => {
+        console.log(books)
+            const newUsers = [...books, 'Angular' + new Date().getTime()]
+            setBooks(newUsers)
+        }, [books]
+    )
 
     return (
         <>
@@ -111,13 +119,12 @@ export const LikeUseCalldack = () => {
             }}>+
             </button>
             {counter}
-            <Book users={newArray} addBook={addBook}/>
+            <Book addBook={memoizedAddBook}/>
         </>
     )
 }
 
 type BSPT = {
-    users: Array<string>,
     addBook: () => void
 }
 
@@ -127,8 +134,8 @@ const BooksSecret = (props: BSPT) => {
     return (
         <div>
             <button onClick={props.addBook}>add book</button>
-            {props.users.map((u, i) => <div key={i}>{u}</div>)}
-        </div>)
+        </div>
+    )
 }
 
 const Book = React.memo(BooksSecret)
