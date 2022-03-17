@@ -93,18 +93,6 @@ export const LikeUseCalldack = () => {
     const [counter, setCounter] = useState(0)
     const [books, setBooks] = useState(['React', 'JS', 'Css', 'HTML'])
 
-    // const newArray = useMemo(() => {
-    //     return books.filter(u => u.toLowerCase().indexOf('a') > -1)
-    // }, [books])
-
-// const memoizedAddBook = useMemo(() => {
-//         return () => {
-//             const newUsers = [...books, 'Angular' + new Date().getTime()]
-//             setBooks(newUsers)
-//         }
-//     }, [books]
-// )
-
     const memoizedAddBook = useCallback(() => {
         console.log(books)
             const newUsers = [...books, 'Angular' + new Date().getTime()]
