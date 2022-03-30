@@ -7,6 +7,8 @@ import UncontrolledAccordion from "./components/UncontrolledAccordion/Uncontroll
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import s from './App.module.css'
 import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {Select} from "./components/Select/Select";
+import OutsideAlerter from "./common/HookComponents/CloseOnClick";
 
 function App() {
     console.log('App rendering')
@@ -14,6 +16,7 @@ function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
+    const [value, setValue] = useState('2')
 
     return (
         <div className={s.item}>
@@ -29,6 +32,14 @@ function App() {
             <hr/>
             <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
+
+
+            <Select value={value} onChange={setValue}
+                    items={
+                        [{title: "Artem", value: '1'},
+                            {title: "Vlad", value: '2'},
+                            {title: "Kate", value: '3'},]}/>
+
         </div>
     )
 }

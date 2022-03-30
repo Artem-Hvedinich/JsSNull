@@ -1,5 +1,6 @@
 import React, {useState, KeyboardEvent, useEffect} from "react";
 import s from './Select.module.css'
+import OutsideAlerter from "../../common/HookComponents/CloseOnClick";
 
 type ItemType = {
     title: string
@@ -23,11 +24,13 @@ export const Select = (props: SelectPropsType) => {
         setHoveredElement(props.value)
     }, [props.value])
 
-    const toggleItems = () => setActive(!active)
+    // const toggleItems = setActive(!active)
     const onClickItems = (value: any) => {
         props.onChange(value);
-        toggleItems()
+        setActive(!active)
     }
+
+
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
         for (let i = 0; i < props.items.length; i++) {
             if (e.key === 'ArrowDown') {
@@ -46,7 +49,7 @@ export const Select = (props: SelectPropsType) => {
                     }
                 }
             }
-            if(!selectedItem) {
+            if (!selectedItem) {
                 props.onChange(props.items[0].value)
             }
         }
@@ -55,24 +58,38 @@ export const Select = (props: SelectPropsType) => {
         }
     }
 
+    // const outFocus = (e: MouseEventHandler<HTMLDivElement>) => {
+    //     e.preventDefault(toggleItems())
+    // }
+    const outsideHandler = () => {
+        setActive(false)
+    }
+
+    const ClassName = active ? s.main_active : s.main
+
     return (
-        <div className={s.select} onKeyUp={onKeyUp} tabIndex={0}>
-            <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
-            {active &&
-                <div className={s.items}>
-                    {props.items.map(i => <div
-                        onMouseEnter={() => {
-                            setHoveredElement(i.value)
-                        }}
-                        className={s.item + ' ' + (hoveredItem === i ? s.selected : '')}
-                        key={i.value}
-                        onClick={() => {
-                            onClickItems(i.value)
-                        }}
+        <OutsideAlerter outsideHandler={outsideHandler}>
+            <div className={s.select} onKeyUp={onKeyUp} tabIndex={0}>
+                <span className={ClassName} onClick={() => setActive(!active)}>{selectedItem && selectedItem.title}</span>
+                {active &&
+                    <div className={s.items}
+                        // onDragExit={() => setActive(!active)}
                     >
-                        {i.title}
-                    </div>)}
-                </div>}
-        </div>
+                        {props.items.map(i => <div
+                            onMouseEnter={() => {
+                                setHoveredElement(i.value)
+                            }}
+                            className={s.item + ' ' + (hoveredItem === i ? s.selected : '')}
+                            key={i.value}
+                            onClick={() => {
+                                onClickItems(i.value)
+                            }}
+                            // onDragExit={() => setActive(!active)}
+                        >
+                            {i.title}
+                        </div>)}
+                    </div>}
+            </div>
+        </OutsideAlerter>
     )
 }
